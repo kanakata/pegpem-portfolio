@@ -1,0 +1,855 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+body{
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background: black;
+}
+::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 5px;
+}
+nav{
+    background: linear-gradient(to bottom, #000000, transparent);
+    width: 100%;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+nav .links{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+nav .links a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    text-transform: capitalize;
+}
+nav .links a.active{
+    text-decoration: underline;
+    color: white;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}
+nav .logo{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav .logo h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: broadway;
+    color: grey;
+}
+nav .contact{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+nav .contact a{
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: .5px;
+    background: white;
+    height: 30px;
+    width: 110px;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: 900;
+    transition: 1.5s;
+}
+nav .contact a:hover{
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+nav .contact a span{
+    margin-right: 1px;
+}
+
+
+/* header */
+header{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top, #000000 40%, transparent);
+    z-index: 900;
+}
+header::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( #000000 , transparent, #000000);
+    z-index: 1;
+}
+header img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: brightness(.3);
+}
+header .intro{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: white;
+    z-index: 20;
+    animation: introAnim 2s ease-in-out forwards;
+}
+@keyframes introAnim {
+    from{
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(10%);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+    
+}
+header .intro h1{
+    font-size: 70px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-family: broadway;
+}
+header .intro h1 span{
+    color: grey;
+}
+header .intro p{
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+header .intro button{
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 5px;
+}
+header .intro button:hover,
+header .intro button:hover a{
+    background: white;
+    color: black;
+    border: none;
+}
+header .intro .portfolio{
+    border: 1px solid grey;
+}
+header .intro .portfolio a{
+    color: grey;
+}
+header .intro .portfolio:hover,
+header .intro .portfolio:hover a{
+    color: white;
+    background: grey;
+    border: none;
+}
+header .intro button a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+
+
+/* about */
+.about{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top, #000000 40%, transparent);
+    z-index: 900;
+    overflow: hidden;
+}
+.about::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( #000000 , transparent, #000000);
+    z-index: 1;
+}
+.about img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: brightness(.3);
+}
+.about .about-text{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    color: white;
+    z-index: 20;
+    width: 100%;
+}
+.about .about-text.show{
+    animation: slideIn 3s ease-in-out forwards;
+}
+@keyframes slideIn {
+    from{
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(10%);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+    
+}
+.about .about-text h2{
+    font-size: 50px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-family: broadway;
+    margin-bottom: 20px;
+}
+.about .about-text h3{
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: grey;
+}
+.about .about-text p{
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 50%;
+}
+.about .about-text button{
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 5px;
+}
+.about .about-text button a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 18px;
+    letter-spacing: .5px;
+}
+.about .about-text button:hover,
+.about .about-text button:hover a{
+    background: white;
+    color: black;
+}
+.about .animation{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+.about .animation .outer_circle{
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: rotate 10s linear infinite;
+    position: relative;
+    background: white;
+    box-shadow: 0px 0px 40px grey;
+}
+.about .animation .outer_circle .inner_circle{
+    width: 300px;
+    height: 300px;
+    border: 1px solid white;
+    background: grey;
+    border-radius: 50%;
+    position: relative;
+    bottom: 0;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* projects */
+.projects{
+    margin: 10px 0px 50px 0px;
+    width: 100%;
+    position: relative;
+    background: black;
+    overflow: hidden;
+    color: white;
+}
+.projects h2{
+    text-transform: capitalize;
+    font-family: broadway;
+    font-size: 40px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+}
+.projects .technologies{
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    padding-right: 100px;
+}
+.projects .technologies.show{
+    animation: tech 4s ease-in-out;
+}
+@keyframes tech {
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.projects .technologies span{
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+.projects .technologies span .progress{
+    width: 300px;
+    height: 5px;
+    background: white;
+    border-radius: 5px;
+}
+.projects .project-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 40px;
+}
+.projects .project-container.show{
+    animation: project 3s ease-in-out;
+}
+@keyframes project {
+    from{
+        opacity: 0;
+        transform: translateX(-10px);
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+        transform: translateY(0);
+    }
+}
+.projects .project-container .project-card{
+    width: 30%;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+}
+.projects .project-container .project-card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(.5);
+}
+.projects .project-container .project-card img:hover{
+    filter: brightness(.7);
+    scale: 1.05;
+}
+.projects .project-container .project-card .content{
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+}
+.projects .project-container .project-card .content h3{
+    color: white;
+    font-family: broadway;
+    text-transform: capitalize;
+}
+
+
+
+/* footer */
+footer{
+    background: linear-gradient(to top, #000000, transparent);
+    width: 100%;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    z-index: 1000;
+    border-top: 1px solid white;
+}
+footer h2{
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: broadway;
+    text-transform: capitalize;
+}
+footer p{
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer .contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0px 20px 20px;
+}
+footer .contacts a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    width: 200px;
+    border-radius: 5px;
+    height: 40px;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 900;
+}
+
+
+/* media query */
+@media (max-width: 700px) {
+
+nav{
+    background: linear-gradient(to bottom, #000000, transparent);
+    width: 100%;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+nav .links{
+    display: none;
+}
+nav .logo{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav .logo h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: broadway;
+    color: grey;
+}
+nav .contact{
+    display: none;
+}
+
+
+
+/* header */
+header{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top, #000000 40%, transparent);
+    z-index: 900;
+}
+header .intro{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    color: white;
+    z-index: 20;
+    animation: introAnim 2s ease-in-out forwards;
+}
+@keyframes introAnim {
+    from{
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(10%);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+    
+}
+header .intro h1{
+    font-size: 40px;
+}
+header .intro p{
+    font-size: 15px;
+}
+header .intro button{
+    margin-top: 10px;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 10px;
+    border: none;
+    background: transparent;
+    border: .5px solid white;
+    margin-left: 5px;
+}
+header .intro button:hover,
+header .intro button:hover a{
+    background: white;
+    color: black;
+    border: none;
+}
+header .intro .portfolio{
+    border: 1px solid grey;
+}
+header .intro .portfolio a{
+    color: grey;
+}
+header .intro .portfolio:hover,
+header .intro .portfolio:hover a{
+    color: white;
+    background: grey;
+    border: none;
+}
+header .intro button a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+
+
+/* about */
+.about{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top, #000000 40%, transparent);
+    z-index: 900;
+    overflow: hidden;
+}
+.about .about-text{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: white;
+    z-index: 20;
+    width: 100%;
+}
+.about .about-text.show{
+    animation: slideIn 3s ease-in-out forwards;
+}
+@keyframes slideIn {
+    from{
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(10%);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+    
+}
+.about .about-text h2{
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-family: broadway;
+    margin-bottom: 10px;
+}
+.about .about-text h3{
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    color: grey;
+}
+.about .about-text p{
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: .5px;
+    width: 90%;
+}
+.about .about-text button{
+    margin-top: 10px;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 5px;
+}
+.about .about-text button a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+.about .about-text button:hover,
+.about .about-text button:hover a{
+    background: white;
+    color: black;
+}
+.about .animation{
+    position: relative;
+    bottom: 0%;
+    left: 5%;
+    transform: translateY(0%);
+    z-index: 20;
+}
+.about .animation .outer_circle{
+    width: 300px;
+    height: 300px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: rotate 10s linear infinite;
+    position: relative;
+    background: white;
+    box-shadow: 0px 0px 40px grey;
+}
+.about .animation .outer_circle .inner_circle{
+    width: 250px;
+    height: 250px;
+    border: 1px solid white;
+    background: grey;
+    border-radius: 50%;
+    position: relative;
+    bottom: 0;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* projects */
+.projects{
+    margin: 10px 0px 50px 0px;
+    width: 100%;
+    position: relative;
+    background: black;
+    overflow: hidden;
+    color: white;
+}
+.projects h2{
+    text-transform: capitalize;
+    font-family: broadway;
+    font-size: 20px;
+    padding-left: 0px;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+    text-align: left;
+    width: 100%;
+}
+.projects .technologies{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 20px;
+    width: 100%;
+    display: none;
+}
+.projects .technologies span{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+.projects .technologies .sql{
+    display: none;
+}
+.projects .technologies span .progress{
+    width: 200px;
+    height: 5px;
+    background: white;
+    border-radius: 5px;
+}
+.projects .project-container{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 40px;
+}
+.projects .project-container.show{
+    animation: project 3s ease-in-out;
+}
+@keyframes project {
+    from{
+        opacity: 0;
+        transform: translateX(-10px);
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+        transform: translateY(0);
+    }
+}
+.projects .project-container .project-card{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+}
+.projects .project-container .project-card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(.5);
+}
+.projects .project-container .project-card img:hover{
+    filter: brightness(.7);
+    scale: 1.05;
+}
+.projects .project-container .project-card .content{
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+}
+.projects .project-container .project-card .content h3{
+    color: white;
+    font-family: broadway;
+    text-transform: capitalize;
+}
+
+
+
+/* footer */
+footer{
+    background: linear-gradient(to top, #000000, transparent);
+    width: 100%;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    z-index: 1000;
+    border-top: 1px solid white;
+}
+footer h2{
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: broadway;
+    text-transform: capitalize;
+}
+footer p{
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer .contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0px 20px 20px;
+}
+footer .contacts a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    width: 200px;
+    border-radius: 5px;
+    height: 40px;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 900;
+}
+}
